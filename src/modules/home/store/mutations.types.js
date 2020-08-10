@@ -1,0 +1,8 @@
+export const SET_ROBO = "ROBO/SET_ROBO";
+
+export const SET_SLOPE = "ROBO/SET_SLOPE";
+export const SET_ROTATION = "ROBO/SET_ROTATION";
+export const SET_LEFT_ELBOW = "ROBO/LEFT_ELBOW";
+export const SET_LEFT_WRIST = "ROBO/SET_LEFT_WRIST";
+export const SET_RIGHT_ELBOW = "ROBO/SET_RIGHT_ELBOW";
+export const SET_RIGHT_WRIST = "ROBO/SET_RIGHT_WRIST";

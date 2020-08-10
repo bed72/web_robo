@@ -1,13 +1,17 @@
 import Vue from "vue";
-import App from "./App.vue";
-import "./registerServiceWorker";
-import router from "./router";
-import store from "./store";
+import app from "./app.vue";
+import { config, router, store } from "./services";
+
+/**
+ * Styles
+ */
+import "./styles/global.scss";
 
 Vue.config.productionTip = false;
 
 new Vue({
   router,
   store,
-  render: h => h(App)
+  apolloProvider: config.apollo.default.apolloProvider,
+  render: h => h(app)
 }).$mount("#app");

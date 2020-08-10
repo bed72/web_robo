@@ -1,0 +1,94 @@
+@import "./variables.scss";
+
+/** 
+ * Função para carregar fontes 
+ */
+@font-face {
+  font-family: "NotoSansHK";
+  src: url("../styles/fonts/NotoSansHK-Light.otf");
+  src: url("../styles/fonts/NotoSansHK-Light.otf") format("otf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: NotoSansHK, medium-content-sans-serif-font, "Lucida Grande",
+    "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+  width: auto;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+html {
+  color: $white;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: $second;
+  background-color: $second;
+}
+
+/** 
+  * Retira sublinhado de links 
+  */
+a {
+  text-decoration-line: none;
+}
+
+/** 
+ * Modificando Scrool 
+ */
+::-webkit-scrollbar-track {
+  /** 
+   * Cor background Chrome
+   */
+  background-color: $second;
+}
+::-webkit-scrollbar {
+  width: 0.5%;
+  // display: none;
+  background: $second;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 5rem;
+  /** 
+    * Cor do Scroll 
+    */
+  background: $primary;
+}
+
+/** 
+ * ********************************************************************************************************************* 
+ * ********************************************************************************************************************* 
+ * ********************************************************************************************************************* 
+ * ******************************************* CLASSES CUSTUMIZADAS POR NÓS ********************************************
+ * ********************************************************************************************************************* 
+ * *********************************************************************************************************************
+ * ********************************************************************************************************************* 
+ */
+
+/** 
+ * Ancoras navegaveis, mais conhecidos como links <a href="">link</a>
+ */
+.anchor {
+  cursor: pointer;
+  color: $link;
+  &:hover {
+    color: $white;
+  }
+}
+
+/** 
+ * Centralizando coisas 
+ */
+.center-x {
+  display: flex;
+  justify-content: center;
+}
+
+.center-x-y {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
