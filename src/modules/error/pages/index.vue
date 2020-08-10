@@ -1,5 +1,5 @@
 <template>
-  <v-app id="notfound">
+  <div id="notfound">
     <div class="notfound">
       <div class="notfound-404">
         <h3>Oops! Página não encontrada</h3>
@@ -13,9 +13,9 @@
         Lamentamos o Erro
         <span id="emoji">&#128549;</span>
       </h2>
-      <button href="/">Voltar</button>
+      <a class="btn" href="/">Voltar</a>
     </div>
-  </v-app>
+  </div>
 </template>
 
 <script>

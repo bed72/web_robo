@@ -20,5 +20,5 @@ export const actionRobo = async ({ commit }) => {
       }
     `
   });
-  commit(types.SET_ROBO, response.data.robo);
+  response.data.robo.map(robo => commit(types.SET_ROBO, robo));
 };

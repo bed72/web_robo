@@ -1,7 +1,6 @@
 import Vue from "vue";
 import app from "./app.vue";
 import { config, router, store } from "./services";
-
 /**
  * Styles
  */

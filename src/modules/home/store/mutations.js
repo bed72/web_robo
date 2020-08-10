@@ -6,21 +6,21 @@ export default {
   },
 
   [types.SET_SLOPE](state, payload) {
-    state.slope = payload;
+    state.robo.slope = payload;
   },
   [types.SET_ROTATION](state, payload) {
-    state.rotation = payload;
+    state.robo.rotation = payload;
   },
   [types.SET_LEFT_ELBOW](state, payload) {
-    state.leftElbow = payload;
+    state.robo.leftElbow = payload;
   },
   [types.SET_LEFT_WRIST](state, payload) {
-    state.leftWrist = payload;
+    state.robo.leftWrist = payload;
   },
   [types.SET_RIGHT_ELBOW](state, payload) {
-    state.rightElbow = payload;
+    state.robo.rightElbow = payload;
   },
   [types.SET_RIGHT_WRIST](state, payload) {
-    state.rightWrist = payload;
+    state.robo.rightWrist = payload;
   }
 };
