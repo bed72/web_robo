@@ -1,24 +1,23 @@
-# robo
+<h1 align="center">
+ :robot: R.O.B.O
+</h1>
 
-## Project setup
-```
-yarn install
-```
+<p align="center">
+  <img src="https://nestjs.com/img/logo_text.svg" width="120" alt="Nest Logo" />
+</p>
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Description
 
-### Compiles and minifies for production
-```
-yarn build
-```
+[R.O.B.O]  (Binary Operational Robot Oriented).
 
-### Lints and fixes files
-```
-yarn lint
+## :hammer: Installation
+
+```bash
+$ yarn
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## :computer: Running the app
+
+```bash
+# development
+$ yarn serve
