@@ -5,6 +5,9 @@ export default {
     state.robo = payload;
   },
 
+  [types.SET_ID](state, payload) {
+    state.robo.id = payload;
+  },
   [types.SET_SLOPE](state, payload) {
     state.robo.slope = payload;
   },
@@ -44,5 +47,5 @@ export default {
   },
   [types.SET_RIGHT_WRIST_UPDATE](state, payload) {
     state.roboUpdate.rightWrist = payload;
-  },
+  }
 };

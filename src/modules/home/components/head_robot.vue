@@ -5,14 +5,20 @@
       <i>{{ rotation }}</i>
     </h4>
     <div class="selected center-x">
-      <select-movement :options="rotationPosition" @emit-value="_getItemSelected" />
+      <select-movement
+        :options="rotationPosition"
+        @emit-value="_getItemSelected"
+      />
     </div>
     <h4>
       Inclinação da Cabeça:
       <i>{{ slope }}</i>
     </h4>
     <div class="selected center-x">
-      <select-movement :options="slopePosition" @emit-value="_getItemSelected" />
+      <select-movement
+        :options="slopePosition"
+        @emit-value="_getItemSelected"
+      />
     </div>
   </div>
 </template>
@@ -46,7 +52,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      _getRobo: "home/getRobo"
+      _getIDRobo: "home/getId"
     })
   },
   methods: {
@@ -56,11 +62,14 @@ export default {
       _actionSetRotationUpdate: "home/actionSetRotationUpdate"
     }),
     _getItemSelected(value) {
-      this._actionSetIDUpdate(this._getRobo.id);
+      //this._actionSetIDUpdate(this._getRobo.id);
       if (value.includes(".")) this._actionSetRotationUpdate(value);
       else this._actionSetSlopeUpdate(value);
       this.item.push(value);
     }
+  },
+  created() {
+    this._actionSetIDUpdate(this._getIDRobo);
   }
 };
 </script>

@@ -1,5 +1,6 @@
 export default {
   robo: {
+    id: null,
     slope: null,
     rotation: null,
     leftElbow: null,
@@ -15,5 +16,5 @@ export default {
     leftWrist: null,
     rightElbow: null,
     rightWrist: null
-  },
+  }
 };

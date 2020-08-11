@@ -1,7 +1,13 @@
 <template>
-  <select class="select-movement" v-model="selectedOption" @change="_emitValue(selectedOption)">
+  <select
+    class="select-movement"
+    v-model="selectedOption"
+    @change="_emitValue(selectedOption)"
+  >
     <option disabled value="initial">Escolha um item</option>
-    <option class="item" v-for="(option, item) in options" :key="item">{{ option }}</option>
+    <option class="item" v-for="(option, item) in options" :key="item">{{
+      option
+    }}</option>
   </select>
 </template>
 
@@ -24,7 +30,7 @@ export default {
   }
 };
 </script>
- 
+
 <style lang="scss" scoped>
 .select-movement {
   border: none;

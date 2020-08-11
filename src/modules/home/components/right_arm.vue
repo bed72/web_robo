@@ -5,7 +5,10 @@
       <i>{{ elbow }}</i>
     </h4>
     <div class="selected center-x">
-      <select-movement :options="elbowPosition" @emit-value="_getItemSelected" />
+      <select-movement
+        :options="elbowPosition"
+        @emit-value="_getItemSelected"
+      />
     </div>
     <h4>
       Pulso Direito:
@@ -13,7 +16,10 @@
     </h4>
 
     <div class="selected center-x">
-      <select-movement :options="wristPosition" @emit-value="_getItemSelected" />
+      <select-movement
+        :options="wristPosition"
+        @emit-value="_getItemSelected"
+      />
     </div>
   </div>
 </template>

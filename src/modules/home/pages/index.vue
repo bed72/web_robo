@@ -4,7 +4,56 @@
       R.O.B.O
       <span class="icon">&#129302;</span>
     </h1>
-    {{ _getRoboUpdate }}
+    <div class="presentasion center-x">
+      <!-- <h3 class="subtitle">Dados selecionados</h3> -->
+      <p class="data">
+        <i>Rotação:</i>
+        <b>
+          {{
+            _getRoboUpdate.rotation == null
+              ? " vazio "
+              : _getRoboUpdate.rotation
+          }}
+        </b>
+        <i>Inclinação:</i>
+        <b>
+          {{ _getRoboUpdate.slope == null ? " vazio " : _getRoboUpdate.slope }}
+        </b>
+        <i>Cotovelo Esquerdo:</i>
+        <b>
+          {{
+            _getRoboUpdate.leftElbow == null
+              ? " vazio "
+              : _getRoboUpdate.leftElbow
+          }}
+        </b>
+        <i>Pulso Esquedo:</i>
+        <b>
+          {{
+            _getRoboUpdate.leftWrist == null
+              ? " vazio "
+              : _getRoboUpdate.leftWrist
+          }}
+        </b>
+        <i>Cotovelo Direito:</i>
+        <b>
+          {{
+            _getRoboUpdate.rightElbow == null
+              ? " vazio "
+              : _getRoboUpdate.rightElbow
+          }}
+        </b>
+        <i>Pulso Direito:</i>
+        <b>
+          {{
+            _getRoboUpdate.rightWrist == null
+              ? " vazio "
+              : _getRoboUpdate.rightWrist
+          }}
+        </b>
+      </p>
+    </div>
+
     <div class="positions">
       <!-- Cabeça => Rtação e Inclinação -->
       <div class="head-robot">
@@ -37,16 +86,18 @@
       </div>
     </div>
     <div class="center-x align-item">
-      <a class="btn" @click.prevent="_actionUpdateRobo(_getRoboUpdate)">ALTERAR</a>
+      <a class="btn" @click.prevent="_actionUpdate">ALTERAR</a>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { reversed } from "../../../services";
 
 export default {
   name: "home",
+  mixins: [reversed],
   data: () => ({
     // Cabeça
     rotationPosition: ["Rotação -90º.", "Rotação -45º.", "Em Repouso."],
@@ -93,20 +144,26 @@ export default {
     ...mapActions({
       _actionSetRobo: "home/actionRobo",
       _actionUpdateRobo: "home/actionUpdateRobo"
-    })
+    }),
+    async _actionUpdate() {
+      await this._actionUpdateRobo(this._getRoboUpdate)
+        .then(() => console.log("Ok"))
+        .catch(error => alert(error.message));
+    }
   },
   created() {
     this._actionSetRobo();
   },
   filters: {
     transform(value) {
+      // Usando meus mixin
       switch (value) {
         case "initial":
           return "Em Repouso";
         case "minusNinetyRotation":
-          return "Rotação para -90º";
+          return "Rotação -90°";
         case "minusFortyFiveRotation":
-          return "Rotação para -45º";
+          return "Rotação -45°";
         case "fortyFiveRotation":
           return "Rotação para 45º";
         case "ninetyRotation":
@@ -142,6 +199,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.presentasion {
+  margin: 10px 0 0 0;
+}
 .icon {
   font-size: 35px;
 }
