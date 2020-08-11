@@ -1,10 +1,14 @@
 <template>
   <div class="home align-item">
-    <h1 class="center-x">R.O.B.O</h1>
+    <h1 class="center-x">
+      R.O.B.O
+      <span class="icon">&#129302;</span>
+    </h1>
+    {{ _getRoboUpdate }}
     <div class="positions">
       <!-- Cabeça => Rtação e Inclinação -->
       <div class="head-robot">
-        <h2>Cabeça</h2>
+        <h2>Cabeça &#128126;</h2>
         <head-component
           :slope="_getSlope | transform"
           :rotation="_getRotation | transform"
@@ -14,7 +18,7 @@
       </div>
       <!-- Braços => Ombros e Pulsos -->
       <div class="left-arm">
-        <h2>Braço Esquerdo</h2>
+        <h2>Braço Esquerdo &#128072;</h2>
         <left-arm-component
           :elbow="_getLeftElbow | transform"
           :wrist="_getLeftWrist | transform"
@@ -23,7 +27,7 @@
         />
       </div>
       <div class="right-arm">
-        <h2>Braço Direito</h2>
+        <h2>Braço Direito &#128073;</h2>
         <right-arm-component
           :elbow="_getRightElbow | transform"
           :wrist="_getRightWrist | transform"
@@ -33,7 +37,7 @@
       </div>
     </div>
     <div class="center-x align-item">
-      <a class="btn " href="/">ALTERAR</a>
+      <a class="btn" @click.prevent="_actionUpdateRobo(_getRoboUpdate)">ALTERAR</a>
     </div>
   </div>
 </template>
@@ -45,28 +49,28 @@ export default {
   name: "home",
   data: () => ({
     // Cabeça
-    rotationPosition: ["Rotação -90º", "Rotação -45º", "Em Repouso"],
+    rotationPosition: ["Rotação -90º.", "Rotação -45º.", "Em Repouso."],
     slopePosition: ["Para Cima", "Para Baixo", "Em Repouso"],
     // Braço
     elbowPosition: [
-      "Em Repouso",
-      "Levemente Contraído",
-      "Contraído",
-      "Fortemente Contraído"
+      "Em Repouso.",
+      "Levemente Contraído.",
+      "Contraído.",
+      "Fortemente Contraído."
     ],
     wristPosition: [
       "Rotação para -90º",
       "Rotação para -45º",
-      ". Em Repouso",
+      "Em Repouso",
       "Rotação para 45º",
       "Rotação para 90º",
       "Rotação para 135º",
-      ". Rotação para 180º"
+      "Rotação para 180º"
     ]
   }),
   computed: {
     ...mapGetters({
-      _getRobo: "home/getRobo",
+      _getRoboUpdate: "home/getRoboUpdate",
       /** Cabeça */
       _getSlope: "home/getSlope",
       _getRotation: "home/getRotation",
@@ -87,7 +91,8 @@ export default {
   },
   methods: {
     ...mapActions({
-      _actionSetRobo: "home/actionRobo"
+      _actionSetRobo: "home/actionRobo",
+      _actionUpdateRobo: "home/actionUpdateRobo"
     })
   },
   created() {
@@ -137,6 +142,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.icon {
+  font-size: 35px;
+}
 .align-item {
   margin: 30px 0 0 0;
 }

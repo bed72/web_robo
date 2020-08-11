@@ -22,5 +22,27 @@ export default {
   },
   [types.SET_RIGHT_WRIST](state, payload) {
     state.robo.rightWrist = payload;
-  }
+  },
+
+  [types.SET_ID_UPDATE](state, payload) {
+    state.roboUpdate.id = payload;
+  },
+  [types.SET_SLOPE_UPDATE](state, payload) {
+    state.roboUpdate.slope = payload;
+  },
+  [types.SET_ROTATION_UPDATE](state, payload) {
+    state.roboUpdate.rotation = payload;
+  },
+  [types.SET_LEFT_ELBOW_UPDATE](state, payload) {
+    state.roboUpdate.leftElbow = payload;
+  },
+  [types.SET_LEFT_WRIST_UPDATE](state, payload) {
+    state.roboUpdate.leftWrist = payload;
+  },
+  [types.SET_RIGHT_ELBOW_UPDATE](state, payload) {
+    state.roboUpdate.rightElbow = payload;
+  },
+  [types.SET_RIGHT_WRIST_UPDATE](state, payload) {
+    state.roboUpdate.rightWrist = payload;
+  },
 };

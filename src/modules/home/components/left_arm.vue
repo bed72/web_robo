@@ -1,29 +1,29 @@
 <template>
   <div class="left-arm">
     <h4>
-      Cotovelo Esquerdo: <i>{{ elbow }}</i>
+      Cotovelo Esquerdo:
+      <i>{{ elbow }}</i>
     </h4>
     <div class="selected center-x">
-      <select-movement
-        :options="elbowPosition"
-        @emit-value="_getItemSelected"
-      />
+      <select-movement :options="elbowPosition" @emit-value="_getItemSelected" />
     </div>
     <h4>
-      Pulso Esquedo: <i>{{ wrist }}</i>
+      Pulso Esquedo:
+      <i>{{ wrist }}</i>
     </h4>
     <div class="selected center-x">
-      <select-movement
-        :options="wristPosition"
-        @emit-value="_getItemSelected"
-      />
+      <select-movement :options="wristPosition" @emit-value="_getItemSelected" />
     </div>
   </div>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "left-arm",
+  data: () => ({
+    item: []
+  }),
   props: {
     elbow: {
       type: String,
@@ -45,8 +45,14 @@ export default {
     }
   },
   methods: {
+    ...mapActions({
+      _actionSetLeftElbowUpdate: "home/actionSetLeftElbowUpdate",
+      _actionSetLeftWristUpdate: "home/actionSetLeftWristUpdate"
+    }),
     _getItemSelected(value) {
-      this.item = value;
+      if (value.includes(".")) this._actionSetLeftElbowUpdate(value);
+      else this._actionSetLeftWristUpdate(value);
+      this.item.push(value);
     }
   }
 };

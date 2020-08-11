@@ -1,4 +1,5 @@
 export const getRobo = state => state.robo;
+export const getRoboUpdate = state => state.roboUpdate;
 
 export const getSlope = state => state.robo.slope;
 export const getRotation = state => state.robo.rotation;
